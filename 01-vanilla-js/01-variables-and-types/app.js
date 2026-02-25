@@ -21,3 +21,13 @@ if (age >= 18 && studentStatus === true) {
 } else {
   console.log("Standard procedure applied");
 }
+
+// --- SECTION 4: LOOPS & ITERATION ---
+
+for (let i = 5; i >= 1; i--) {
+  if (i === 3) {
+    console.log(`Warning: Cargo load check at T-3.`);
+  } else {
+    console.log(`T-minus ${i} seconds`);
+  }
+}
