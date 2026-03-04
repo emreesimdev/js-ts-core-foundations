@@ -15,3 +15,13 @@ const shipments = ["TR-100", "DE-200", "NL-300"];
 console.log(shipments);
 console.log(shipments[1]);
 console.log(`Total active shipments: ${shipments.length}`);
+
+// --- SECTION 3: ARRAY METHODS (MUTATION) ---
+
+shipments.push("FR-400");
+console.log(shipments);
+console.log(`Total active shipments: ${shipments.length}`);
+
+let canceledShipment = shipments.pop();
+console.log(`Canceled Shipment: ${canceledShipment}`);
+console.log(shipments);
