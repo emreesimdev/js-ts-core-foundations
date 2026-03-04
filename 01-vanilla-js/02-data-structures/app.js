@@ -25,3 +25,13 @@ console.log(`Total active shipments: ${shipments.length}`);
 let canceledShipment = shipments.pop();
 console.log(`Canceled Shipment: ${canceledShipment}`);
 console.log(shipments);
+
+// --- SECTION 4: ARRAY METHODS (SHIFT & UNSHIFT) ---
+
+shipments.unshift("DE-URGENT-001");
+console.log(shipments);
+console.log(shipments[0]);
+
+let processedShipment = shipments.shift();
+console.log(`Priority Processed: ${processedShipment}`);
+console.log(shipments);
