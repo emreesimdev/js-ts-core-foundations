@@ -35,3 +35,12 @@ console.log(shipments[0]);
 let processedShipment = shipments.shift();
 console.log(`Priority Processed: ${processedShipment}`);
 console.log(shipments);
+
+// --- SECTION 5: ARRAY METHODS (SEARCHING) ---
+
+if (shipments.includes("NL-300")) {
+  let targetIndex = shipments.indexOf("NL-300");
+  console.log(`Target locked. Shipment NL-300 found at ${targetIndex}`);
+} else {
+  console.log(`Shipment not found in current manifest`);
+}
