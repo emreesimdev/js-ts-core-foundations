@@ -7,3 +7,10 @@ const cargoProfile = {
 };
 
 console.log(cargoProfile);
+
+// --- SECTION: 2 ACCESSING OBJECT PROPERTIES ---
+
+console.log(`Current cargo weight: ${cargoProfile.weight}`);
+
+let dynamicKey = "id";
+console.log(`Dynamic query result: ${cargoProfile[dynamicKey]}`);
