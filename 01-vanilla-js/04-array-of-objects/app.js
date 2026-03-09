@@ -7,3 +7,11 @@ const cargoManifest = [
 ];
 
 console.log(cargoManifest[1].weight);
+
+// --- SECTION 2: ITERATING ARRAY OF OBJECTS ---
+
+for (let i = 0; i < cargoManifest.length; i++) {
+  if (cargoManifest[i].id === "NL-003") {
+    console.log(`Target found! NL-003 weighs ${cargoManifest[i].weight} kg.`);
+  }
+}
