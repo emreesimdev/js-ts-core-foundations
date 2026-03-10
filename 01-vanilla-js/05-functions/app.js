@@ -24,3 +24,10 @@ console.log(calculateTotalFreight(20, 150));
 const calculateFastFreight = (weight, distance) => weight * 10 + distance * 2;
 
 console.log(calculateFastFreight(30, 170));
+
+// --- SECTION 4: DEFAULT PARAMETERS ---
+
+const calculateFinalPrice = (price, taxRate = 0.19) => price + price * taxRate;
+
+console.log(calculateFinalPrice(100));
+console.log(calculateFinalPrice(100, 0.08));
