@@ -17,7 +17,6 @@ searchButton.addEventListener("click", () => {
   document.querySelector("#resultDisplay").textContent =
     `Target Cargo: ${searchInput.value}`;
 });
-*/
 
 // --- SECTION 3: DYNAMIC ELEMENT CREATION ---
 
@@ -28,6 +27,26 @@ const cargoList = document.querySelector("#cargoList");
 searchButton.addEventListener("click", () => {
   const newCargoItem = document.createElement("li");
   newCargoItem.textContent = `Target Cargo: ${searchInput.value}`;
+  cargoList.appendChild(newCargoItem);
+  searchInput.value = "";
+});
+*/
+
+// --- SECTION 4: ELEMENT DELETION ---
+
+const searchInput = document.querySelector("#cargoInput");
+const searchButton = document.querySelector("#searchBtn");
+const cargoList = document.querySelector("#cargoList");
+
+searchButton.addEventListener("click", () => {
+  const newCargoItem = document.createElement("li");
+  newCargoItem.textContent = `Target Cargo: ${searchInput.value}`;
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = `Cancel`;
+  deleteBtn.addEventListener("click", () => {
+    newCargoItem.remove();
+  });
+  newCargoItem.appendChild(deleteBtn);
   cargoList.appendChild(newCargoItem);
   searchInput.value = "";
 });
