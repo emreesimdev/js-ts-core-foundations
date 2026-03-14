@@ -39,6 +39,9 @@ const searchButton = document.querySelector("#searchBtn");
 const cargoList = document.querySelector("#cargoList");
 
 searchButton.addEventListener("click", () => {
+  if (searchInput.value.trim() === "") {
+    return;
+  }
   const newCargoItem = document.createElement("li");
   newCargoItem.textContent = `Target Cargo: ${searchInput.value}`;
   const deleteBtn = document.createElement("button");
@@ -49,4 +52,12 @@ searchButton.addEventListener("click", () => {
   newCargoItem.appendChild(deleteBtn);
   cargoList.appendChild(newCargoItem);
   searchInput.value = "";
+});
+
+// --- SECTION 5: KEYBOARD EVENTS & EVENT OBJECT ---
+
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    searchButton.click();
+  }
 });
