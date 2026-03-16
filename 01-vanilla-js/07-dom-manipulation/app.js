@@ -42,15 +42,20 @@ searchButton.addEventListener("click", () => {
   if (searchInput.value.trim() === "") {
     return;
   }
+  const currentCargo = searchInput.value;
   const newCargoItem = document.createElement("li");
-  newCargoItem.textContent = `Target Cargo: ${searchInput.value}`;
+  newCargoItem.textContent = `Target Cargo: ${currentCargo}`;
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = `Cancel`;
   deleteBtn.addEventListener("click", () => {
+    savedCargos = savedCargos.filter((item) => item !== currentCargo);
+    saveToDatabase();
     newCargoItem.remove();
   });
   newCargoItem.appendChild(deleteBtn);
   cargoList.appendChild(newCargoItem);
+  savedCargos.push(currentCargo);
+  saveToDatabase();
   searchInput.value = "";
 });
 
@@ -60,4 +65,28 @@ searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     searchButton.click();
   }
+});
+
+// --- SECTION 6: LOCAL STORAGE (DATA PERSISTENCE) ---
+
+let savedCargos = JSON.parse(localStorage.getItem("cargos")) || [];
+
+const saveToDatabase = () => {
+  localStorage.setItem("cargos", JSON.stringify(savedCargos));
+};
+
+// --- SECTION 7: INITIAL LOAD (HYDRATION) ---
+
+savedCargos.forEach((cargo) => {
+  const newCargoItem = document.createElement("li");
+  newCargoItem.textContent = `Target Cargo: ${cargo}`;
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = `Cancel`;
+  deleteBtn.addEventListener("click", () => {
+    savedCargos = savedCargos.filter((item) => item !== cargo);
+    saveToDatabase();
+    newCargoItem.remove();
+  });
+  newCargoItem.appendChild(deleteBtn);
+  cargoList.appendChild(newCargoItem);
 });
